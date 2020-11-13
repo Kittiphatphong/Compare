@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\DataNcc;
+use DB;
 class ViewController extends Controller
 {
     public function view(){
@@ -14,6 +15,11 @@ class ViewController extends Controller
     }
 
     public function compare(){
-        return view('Compare');
+        $datas= $users = DB::table('data_nccs')
+            ->join('data_unitels', 'data_nccs.tel', '=', 'data_unitels.tel')
+            ->select('data_nccs.tel as nccs')
+            ->get();
+        return view('Compare')
+            ->with('datas',$datas);
     }
 }

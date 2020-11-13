@@ -13,13 +13,14 @@
                 </tr>
                 </thead>
                 <tbody>
-               
+               @foreach($datas as $data)
                 <tr>
                     <th scope="row">1</th>
                     <td>Mark</td>
                     <td>Otto</td>
                     <td>@mdo</td>
                 </tr>
+               @endforeach
                 </tbody>
             </table>
         </div>
