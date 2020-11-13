@@ -1,0 +1,30 @@
+@extends('layouts.app')
+
+@section('content')
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">View</div>
+
+                    <div class="card-body">
+                        @if (session('status'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+
+                        <form class="form-group" action="{{route("importNcc")}}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <input type="file" class="form-control" name="import_ncc">
+                            <input type="file" class="form-control" name="import_unitel">
+                            <input type="submit" value="Import">
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
