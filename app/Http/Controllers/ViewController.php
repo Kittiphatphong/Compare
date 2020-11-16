@@ -15,11 +15,16 @@ class ViewController extends Controller
     }
 
     public function compare(){
-        $datas= $users = DB::table('data_nccs')
-            ->join('data_unitels', 'data_nccs.tel', '=', 'data_unitels.tel')
-            ->select('data_nccs.tel as nccs')
+        $Nccdatas= $users = DB::table('data_nccs')
+            ->join('')
+            ->select('data_nccs.tel as telN',
+//                DB::raw('sum(data_nccs.amount) as sumNcc')
+)
+//            ->groupBy('data_nccs.tel')
             ->get();
-        return view('Compare')
-            ->with('datas',$datas);
+        dd($Nccdatas);
+//        return view('Compare')
+////            ->with('Uniteldatas',$Uniteldatas)
+//            ->with('Nccdatas',$Nccdatas);
     }
 }
